@@ -49,13 +49,13 @@ def lambda_handler(event, context):
         missing_tags = list(set(required_tags) - set(common_tags))
         
         # Creating tag key(s).  If instance(s) has all required tag keys, it will skip.
-    #     if missing_tags == []:
-    #         print(str(iid) + ' has all required tags!')
-    #     else:
-    #         print(str(iid) + ' is missing required tags: ' + str(missing_tags))
-    #         for key_name in missing_tags:
-    #             tagging_keys = client.create_tags(Resources=[iid], Tags=[{'Key': key_name, 'Value': ''}])
-    #         print('Added missing tags.\n')
+        if missing_tags == []:
+            print(str(iid) + ' has all required tags!')
+        else:
+            print(str(iid) + ' is missing required tags: ' + str(missing_tags))
+            for key_name in missing_tags:
+                tagging_keys = client.create_tags(Resources=[iid], Tags=[{'Key': key_name, 'Value': ''}])
+            print('Added missing tags.\n')
 
-    # print("\nAll instances in DEV and DR VPC have required tags.\n")
+    print("\nAll instances in DEV and DR VPC have required tags.\n")
     return True
