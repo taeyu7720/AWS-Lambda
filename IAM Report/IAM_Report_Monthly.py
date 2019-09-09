@@ -50,8 +50,8 @@ def lambda_handler(event, context):
     s3.meta.client.upload_file(csvfile, 'temp-restore', iam_csv)
     
     #Sending an email to AWS Support distro with csv attachment.
-    SENDER = "noreply@cfpb.gov"
-    RECIPIENT = "_DL_CFPB_SystemsEngineeringAWSSupport@cfpb.gov"
+    SENDER = "sender@youremail.com"
+    RECIPIENT = "recipient@youremail.com"
     SUBJECT = "IAM Credential Report on " + today
     ATTACHMENT = csvfile
     BODY_TEXT = "Hello,\r\n\nPlease see the attached file for a list of IAM users and roles."
